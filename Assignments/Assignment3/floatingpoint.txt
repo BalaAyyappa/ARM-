@@ -1,0 +1,45 @@
+
+1. All the three , the sign bit, exponent and fraction are used to represent a floating point number. 
+But, as per my knowledge and understanding, fractional part plays more important role to define precision as the number of digits used after fraction will lead to more precision. 
+The exponent part is used just to increase the range of numbers that is being represented.
+And the sign bit is only to represent sign of number. 
+2. Non-zero numbers whose adjusted exponents are less than minimum
+exponent E min are called Subnormal numbers.
+When all the exponent bits are 0 and the leading hidden bit of the
+siginificand is 0, then the floating-point number is called a subnormal
+number. Thus, one logical representation of a subnormal number is
+(–1) s × 0.f × 2 -127 (all 0s for the exponent) ,
+where f has at least one 1 (otherwise the number will be taken as
+0). However, the standard uses –126, i.e., bias +1 for the exponent
+rather than –127 which is the bias for some not so obvious reason,
+possibly because by using –126 instead of –127, the gap between
+the largest subnormal number and the smallest normalized number
+is smaller
+The interpretation of a subnormal a number is different. The content
+of the exponent part (e) is zero and the significand part (m) is non-zero.
+The value of a subnormal number is
+(−1) s × 0.m × 2 -126
+The smallest magnitude of a normalized number in single precession
+is ± 0000 0001 000 0000 0000 0000 0000 0000, whose value is
+1.0 × 2 -126 .
+The largest magnitude of a normalized number in single precession is
+± 1111 1110 111 1111 1111 1111 1111 1111, whose value is
+1.99999988 × 2 127 ≈ 3.403 × 10 38
+The smallest magnitude of a subnormal number in single precession is
+± 0000 0000 000 0000 0000 0000 0000 0001, whose value is
+2 -126+(-23) = 2 -149 .
+The largest magnitude of a subnormal number in single precession is
+± 0000 0000 111 1111 1111 1111 1111 1111, whose value is
+0.99999988 × 2 -126 .
+
+3. There are 5 methods
+• Rounding to nearest even number
+9.9 to 10, -9.9 to -10
+• Rounding to nearest, away from zero
+9.9 to 10, -9.9 to -10
+• Rounding towards zero
+9.9 to 9, -9.9 to -9
+• Rounding towards minus infinity
+9.9 to 9, -9.9 to -10
+• Rounding towards plus infinity
+9.9 to 10, -9.9 to -9
